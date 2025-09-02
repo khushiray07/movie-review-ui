@@ -1,34 +1,15 @@
-const MovieCard = () => {
-  const movie = {
-    poster: "https://m.media-amazon.com/images/I/81218n6JFgL.jpg",
-    name: "Oppenheimer",
-    releaseDate: "21 July 2023",
-    rating: "9/10",
-  };
-return (
-    <div style={styles.card}>
-      <img src={movie.poster} alt={movie.name} style={styles.poster} />
-      <h2>{movie.name}</h2>
-      <p>Release Date: {movie.releaseDate}</p>
-      <p>Rating: {movie.rating}</p>
+// components/MovieCard.js
+import MovieRating from "./MovieRating";
+
+function MovieCard({ moviePoster, movieName, movieRelease, movieRating }) {
+  return (
+    <div style={{ border: "1px solid #ddd", padding: 12, borderRadius: 8, width: 250 }}>
+      <img src={moviePoster} alt={`${movieName} poster`} style={{ width: "100%", borderRadius: 6 }} />
+      <h3>{movieName}</h3>
+      <p>Released: {movieRelease}</p>
+      <MovieRating rating={movieRating} />
     </div>
   );
-};
-const styles = {
-  card: {
-    border: "10px solid #FFF",
-    borderRadius: "10px",
-    padding: "10px",
-    width: "250px",
-    textAlign: "center",
-    boxShadow: "0px 10px 6px rgba(0,0,0,0.1)",
-    margin: "20px auto",
-  },
-  poster: {
-    width: "100%",
-    borderRadius: "10px",
-  },
-};
-
+}
 
 export default MovieCard;
