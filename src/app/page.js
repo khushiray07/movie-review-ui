@@ -1,29 +1,37 @@
-// app/page.js  (Next.js App Router)  OR  pages/index.js (Pages Router)
-import MovieCard from "@/Components/MovieCard";
+"use client";
 
-export default function Home() {
+import MovieCard from "../Components/MovieCard";
+import "../app/globals.css";
+
+export default function Page() {
+  const movies = [
+    {
+      name: "Mad Max: Fury Road",
+      releaseDate: "15 May",
+      releaseYear: 2015,
+      poster: "/assets/images/mad-max.jpg",
+    },
+    {
+      name: "Inception",
+      releaseDate: "16 July",
+      releaseYear: 2010,
+      poster: "/assets/images/inception.jpg",
+    },
+    {
+      name: "3 Idiots",
+      releaseDate: "7 Nov",
+      releaseYear: 2009,
+      poster: "/assets/images/idiots.jpg",
+    },
+  ];
+
   return (
-    <section>
-      <h1>Movie List</h1>
-      <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-        <MovieCard
-          moviePoster="https://m.media-amazon.com/images/I/81218n6JFgL.jpg"
-          movieName="Oppenheimer"
-          movieRelease="21 July 2023"
-          movieRating={3.5}
-        />
-        <MovieCard
-          moviePoster="https://image.tmdb.org/t/p/original/wWJbBo5yjw22AIjE8isBFoiBI3S.jpg"
-          movieName="The Godfather"
-          movieRelease="24 March 1972"
-          movieRating={4.3}
-        />
-        <MovieCard
-          moviePoster="https://cdn.kinocheck.com/i/m2s0jjjwgk.jpg"
-          movieName="Parasite"
-          movieRelease="30 May 2019"
-          movieRating={4.3}
-        />
+    <section className="page">
+      <h1>🎥 Movie Review App</h1>
+      <div className="movie-grid">
+        {movies.map((m) => (
+          <MovieCard key={m.name} movie={m} />
+        ))}
       </div>
     </section>
   );

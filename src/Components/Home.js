@@ -1,30 +1,31 @@
-// app/page.js OR pages/index.js (depending on Next.js setup)
-import MovieCard from "@/Components/MovieCard";
-
 export default function Home() {
+  const moviePoster = "/assets/images/mad-max.jpg";
+  const movieName = "Mad Max: Fury Road";
+  const releaseDate = "15 May";
+  const releaseYear = 2015;
+  const rating = 5;
+  const handlingAddRating = (movie) => {
+    alert("Rating Added for " + movie + " 🥳");
+  };
   return (
-    <section>
-      <h1>🎬 Movie List</h1>
-      <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
-        <MovieCard
-          moviePoster="https://m.media-amazon.com/images/I/81218n6JFgL.jpg"
-          movieName="Oppenheimer"
-          movieRelease="21 July 2023"
-          movieRating={4.7}
-        />
-        <MovieCard
-          moviePoster="https://image.tmdb.org/t/p/original/wWJbBo5yjw22AIjE8isBFoiBI3S.jpg"
-          movieName="The Godfather"
-          movieRelease="24 March 1972"
-          movieRating={4.9}
-        />
-        <MovieCard
-          moviePoster="https://cdn.kinocheck.com/i/m2s0jjjwgk.jpg"
-          movieName="Parasite"
-          movieRelease="30 May 2019"
-          movieRating={4.5}
-        />
+    <section className="min-h-screen mx-auto flex flex-col items-center mt-10">
+      <div className="card">
+        <div className="card-poster">
+          <img src={moviePoster} alt="Movie Poster" />
+        </div>
+        <div className="card-details">
+          <p>Rating: {rating}</p>
+          <p className="card-title">{movieName}</p>
+          <div className="card-release-year">
+            <p>{releaseDate}</p>
+            <p className="release-year">({releaseYear})</p>
+          </div>
+        </div>
       </div>
+      {/* Button to add rating */}
+      <button className="add-rating-button" onClick={() => handlingAddRating(movieName)}>
+        Add Rating
+      </button>
     </section>
   );
 }
