@@ -1,77 +1,48 @@
-.page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 24px;
-}
+.container { max-width: 1000px; margin: 0 auto; padding: 2rem 1rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
 
-.movie-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 1100px;
-  margin-top: 20px;
-}
-
-.movie-card {
-  background: #111;
-  color: #fff;
-  border-radius: 12px;
+.card {
+  background: #121822;
+  border: 1px solid #1f2a38;
+  border-radius: 16px;
   overflow: hidden;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
+.card-poster {
+  position: relative;
+  aspect-ratio: 16 / 9;  
+  overflow: hidden;
+}
 .card-poster img {
   width: 100%;
-  height: 360px;
-  object-fit: cover; /* ensures it fills nicely */
+  height: 100%;
+  object-fit: cover;       
+  object-position: center; 
   display: block;
-  border-bottom: 2px solid #222;
 }
 
-.card-details {
-  padding: 14px 16px 18px;
+.card-details { padding: 12px; display: grid; gap: 10px; }
+.card-title { font-weight: 700; }
+.card-release-year { display: flex; gap: .5rem; opacity: .8; }
+.release-year { opacity: .7; }
+
+.btn-group { display: flex; gap: .5rem; }
+.btn-group button, .save-btn {
+  background: #1a2533; border: 1px solid #273446; color: #e6ebf0; padding: .5rem .75rem;
+  border-radius: 10px; cursor: pointer;
+}
+.btn-group button:hover, .save-btn:hover { filter: brightness(1.1); }
+
+.review-box {
+  min-height: 90px; resize: vertical; padding: .6rem .7rem; border-radius: 10px;
+  border: 1px solid #273446; background: #0f1520; color: #e6ebf0;
 }
 
-.card-details h2 {
-  font-size: 18px;
-  margin: 8px 0 6px;
-}
-
-.release {
-  font-size: 14px;
-  color: #cfcfcf;
-}
-
-.message {
-  color: #ffcc00;
-  font-style: italic;
-}
-
-.rating-buttons {
-  margin-top: 12px;
-}
-
-.rating-buttons p {
-  margin-bottom: 6px;
-  font-size: 14px;
-  color: #d0d0d0;
-}
-
-.rating-buttons button {
-  background: #1f1f1f;
-  color: #fff;
-  border: 1px solid #555;
-  padding: 6px 10px;
-  margin: 0 3px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.rating-buttons button.active,
-.rating-buttons button:hover {
-  background: crimson;
-  border-color: crimson;
+.notification-popup {
+  position: sticky; top: 8px; z-index: 10; margin: 0 auto 12px;
+  width: fit-content; background: #0e1a2a; color: #b5f1b9;
+  border: 1px solid #244a2e; padding: .5rem .75rem; border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
 }
